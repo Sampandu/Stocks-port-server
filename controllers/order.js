@@ -63,25 +63,6 @@ const handleOrder = (req, res, db) => {
       }
     })
     .catch(err => res.status(400).json('unable to handle this order'))
-
-  // db.transaction(trx => {
-  //   trx.insert({name, ticker, quantity, price})
-  //     .into('transaction')
-  //     .returning('name')
-  //     .then(name => {
-  //       return trx('portfolio')
-  //               .returning('*')
-  //               .insert({
-  //                 name: name,
-  //                 email: loginEmail[0],
-  //                 joined: new Date()
-  //               })
-  //               .then(user => res.json(user[0]))
-  //       })
-  //     .then(trx.commit)
-  //     .catch(trx.rollback)
-  // })
-  // .catch(err => res.status(400).json('unable to register'))
 }
 
 module.exports = { handleOrder }
