@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt-nodejs')
 const { handleRegister } = require('./controllers/register')
 const { handleSignin } = require('./controllers/signin')
 const { handleOrder } = require('./controllers/order')
+const { handlePortfolio } = require('./controllers/portfolio')
 
 const db = knex({
   client: 'pg',
@@ -27,6 +28,8 @@ app.use(cors())
 app.post('/register', (req, res) => handleRegister(req, res, db, bcrypt))
 app.post('/signin', (req, res) => handleSignin(req, res, db, bcrypt))
 app.post('/order', (req, res) => handleOrder(req, res, db))
+app.get('/portfolio', (req, res) => handlePortfolio(req, res, db))
+// app.get('/transaction', (req, res) => handleOrder(req, res, db))
 
 
 app.listen(3001, () => {
