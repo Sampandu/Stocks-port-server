@@ -1,5 +1,5 @@
 const handleTransaction = (req, res, db) => {
-  const { name } = req.body
+  const { name } = req.query
 
   db.select('*')
     .from('transaction')
