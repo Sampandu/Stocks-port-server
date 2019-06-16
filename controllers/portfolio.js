@@ -3,7 +3,7 @@ const axios = require('axios');
 const { testToken } = require('../.secret');
 
 const handlePortfolio = (req, res, db) => {
-  const { name } = req.body;
+  const name = req.query.name;
 
   db.select('*')
     .from('portfolio')
