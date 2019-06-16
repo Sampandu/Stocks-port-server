@@ -25,7 +25,7 @@ const handleOrder = (req, res, db) => {
             ticker: ticker
           })
           .then(data => {
-            // check if a user's portfolio is empty or not
+            // check if the ticker exits in portfolio or not
             if(data.length === 0) {
               return db.transaction(trx => {
                       trx.insert({name, ticker, quantity})
