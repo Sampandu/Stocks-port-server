@@ -13,7 +13,7 @@ const handlePortfolio = (req, res, db) => {
         return res.status(200).json('Your portfolio is empty');
       }
       const tickersList = createTickersList(portfolio);
-      //get the open price and latest price of each stock listed in the portfolio by fetching IEX API
+      //get the open price and latest price of each stock listed in the portfolio by using IEX API
       axios
         .get(
           `https://sandbox.iexapis.com/v1/stock/market/batch?token=${testToken}&symbols=${tickersList}&types=quote`

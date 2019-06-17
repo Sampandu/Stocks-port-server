@@ -11,7 +11,7 @@ const handleTransaction = (req, res, db) => {
         return res.status(200).json(data);
       }
     })
-    .catch(err => res.status(400).json('unable to show the transaction'));
+    .catch(err => res.status(400).json('Oops, unable to show the transaction'));
 };
 
 module.exports = { handleTransaction };
