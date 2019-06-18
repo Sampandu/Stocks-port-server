@@ -1,24 +1,24 @@
-const { fetchPrice, fetchSupportedTickers } = require('./handleAPIcall');
+const { fetchPrice } = require('./handleAPIcall');
 
 const handleOrder = (req, res, db) => {
   let { name, ticker, quantity } = req.body;
   ticker = ticker.toUpperCase();
 
   //quantity validation
-  if (!Number.isInteger(quantity)) {
-    return res
-      .json('Please enter whole number quantities of shares')
-      .status(400);
-  }
+  // if (!Number.isInteger(quantity)) {
+  //   return res
+  //     .json('Please enter whole number quantities of shares')
+  //     .status(400);
+  // }
 
   //ticker validation
-  fetchSupportedTickers(ticker)
-    .then(result => {
-      return !result && res.json('Please enter valid ticker').status(400);
-    })
-    .catch(err =>
-      console.log('Oops, there is error in fetching supported tickers', err)
-    );
+  // fetchSupportedTickers(ticker)
+  //   .then(result => {
+  //     return !result && res.json('Please enter valid ticker').status(400);
+  //   })
+  //   .catch(err =>
+  //     console.log('Oops, there is error in fetching supported tickers', err)
+  //   );
 
   const makeOrder = async () => {
     try {
