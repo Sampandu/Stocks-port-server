@@ -6,7 +6,7 @@ const handleTransaction = (req, res, db) => {
     .where('name', '=', name)
     .then(data => {
       if (data.length === 0) {
-        return res.status(200).json('Your transaction is empty');
+        return res.status(200).json([]);
       } else {
         return res.status(200).json(data);
       }
