@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt-nodejs');
 
 const { handleRegister } = require('./controllers/register');
 const { handleSignin } = require('./controllers/signin');
-const { handleOrder } = require('./controllers/order');
+const { handleOrder, getBalance } = require('./controllers/order');
 const { handlePortfolio } = require('./controllers/portfolio');
 const { handleTransaction } = require('./controllers/transaction');
 const { fetchSupportedTickers } = require('./controllers/handleAPIcall');
@@ -17,7 +17,7 @@ const db = knex({
     host: '127.0.0.1',
     user: '',
     password: '',
-    database: 'ttp-fs',
+    database: 'ttp_fs',
   },
 });
 
@@ -33,6 +33,7 @@ app.post('/order', (req, res) => handleOrder(req, res, db));
 app.get('/portfolio', (req, res) => handlePortfolio(req, res, db));
 app.get('/transaction', (req, res) => handleTransaction(req, res, db));
 app.get('/tickersList', (req, res) => fetchSupportedTickers(req, res));
+app.get('/balance', (req, res) => getBalance(req, res, db));
 
 app.listen(3001, () => {
   console.log('The server is listening on port 3001');

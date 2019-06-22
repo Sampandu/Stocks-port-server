@@ -9,7 +9,6 @@ const handleOrder = (req, res, db) => {
       const price = await fetchPrice(req, res, ticker);
       const orderValue = Number(price) * Number(quantity).toFixed(2);
 
-      //--------------------------------------
       db.select('balance')
         .from('users')
         .where({ name: name })
@@ -114,81 +113,23 @@ const handleOrder = (req, res, db) => {
     }
   };
 
-  //--------------------------------
-  // write data into db (both tables of portfolio and transaction)
-  // db.select('quantity')
-  //   .from('portfolio')
-  //   .where({
-  //     name: name,
-  //     ticker: ticker,
-  //   })
-  //   .then(data => {
-  // check if the ticker exits in portfolio or not
-  //         if (data.length === 0) {
-  //           return db
-  //             .transaction(trx => {
-  //               trx
-  //                 .insert({ name, ticker, quantity })
-  //                 .into('portfolio')
-  //                 .returning('*')
-  //                 .then(data => {
-  //                   return trx('transaction')
-  //                     .returning('*')
-  //                     .insert({
-  //                       name: data[0].name,
-  //                       ticker: data[0].ticker,
-  //                       quantity: Number(data[0].quantity),
-  //                       price: price,
-  //                     })
-  //                     .then(tx => res.json(tx[0]));
-  //                 })
-  //                 .then(trx.commit)
-  //                 .catch(trx.rollback);
-  //             })
-  //             .catch(err => {
-  //               console.log(err);
-  //               res.status(400).json('unable to process this order');
-  //             });
-  //         } else {
-  //           return db
-  //             .transaction(trx => {
-  //               trx('portfolio')
-  //                 .where({
-  //                   name: name,
-  //                   ticker: ticker,
-  //                 })
-  //                 .increment('quantity', quantity)
-  //                 .returning('*')
-  //                 .then(data => {
-  //                   return trx('transaction')
-  //                     .returning('*')
-  //                     .insert({
-  //                       name: data[0].name,
-  //                       ticker: ticker,
-  //                       quantity: quantity,
-  //                       price: price,
-  //                     })
-  //                     .then(tx => res.json(tx[0]));
-  //                 })
-  //                 .then(trx.commit)
-  //                 .catch(trx.rollback);
-  //             })
-  //             .catch(err => {
-  //               console.log(err);
-  //               res.status(400).json('unable to process this order');
-  //             });
-  //         }
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //         res.status(400).json('unable to handle this order');
-  //       });
-  //   } catch (error) {
-  //     console.log('Oops, there is error in order route', error);
-  //   }
-  // };
-
   makeOrder();
 };
 
-module.exports = { handleOrder };
+const getBalance = (req, res, db) => {
+  const name = req.query.name;
+
+  db.select('balance')
+    .from('users')
+    .where('name', '=', name)
+    .then(result => {
+      console.log('-----', result);
+      res.json(result[0].balance).status(200);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400).json('Ooops, unable to get the balance');
+    });
+};
+
+module.exports = { handleOrder, getBalance };
