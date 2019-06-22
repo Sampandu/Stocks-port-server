@@ -10,6 +10,7 @@ const { handleOrder, getBalance } = require('./controllers/order');
 const { handlePortfolio } = require('./controllers/portfolio');
 const { handleTransaction } = require('./controllers/transaction');
 const { fetchSupportedTickers } = require('./controllers/handleAPIcall');
+const PORT = process.env.PORT || 3001;
 
 const db = knex({
   client: 'pg',
@@ -35,6 +36,6 @@ app.get('/transaction', (req, res) => handleTransaction(req, res, db));
 app.get('/tickersList', (req, res) => fetchSupportedTickers(req, res));
 app.get('/balance', (req, res) => getBalance(req, res, db));
 
-app.listen(3001, () => {
-  console.log('The server is listening on port 3001');
+app.listen(PORT, () => {
+  console.log(`The server is listening on port ${PORT}`);
 });
