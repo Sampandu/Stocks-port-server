@@ -122,10 +122,7 @@ const getBalance = (req, res, db) => {
   db.select('balance')
     .from('users')
     .where('name', '=', name)
-    .then(result => {
-      console.log('-----', result);
-      res.json(result[0].balance).status(200);
-    })
+    .then(result => res.json(result[0].balance).status(200))
     .catch(err => {
       console.log(err);
       res.status(400).json('Ooops, unable to get the balance');
