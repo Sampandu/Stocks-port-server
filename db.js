@@ -11,11 +11,11 @@ var db = require('knex')({
   connection: config,
 });
 
-db.raw('CREATE DATABASE TTP-FS;')
+db.raw('CREATE DATABASE TTP_FS;')
   .then(function() {
     db.destroy();
 
-    config.database = 'ttp-fs';
+    config.database = 'ttp_fs';
     db = require('knex')({ client: 'pg', connection: config });
 
     db.schema
