@@ -2,6 +2,10 @@
   "name": "ttp-fs-server",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "10.16.0",
+    "npm":"6.9.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
@@ -30,3 +34,6 @@
     "pg": "^7.9.0"
   }
 }
+
+//node 10.16.0...
+// remote:        Using default npm version: 6.9.0
