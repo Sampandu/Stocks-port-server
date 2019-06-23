@@ -2,7 +2,7 @@
 
 ## Overview
 
-The app runs on a Node/Express server and is powered by React on the front end. It allows the user to buy a stock, view a list of transactions he/she has made and review the performance of a list of stocks whose prices continuously rise and fall throughout the day. It is deployed at https://xxx.herokuapp.com/.
+The app runs on a Node/Express server and is powered by React on the front end. It allows the user to buy a stock, view a list of transactions he/she has made and review the performance of a list of stocks whose prices continuously rise and fall throughout the day. It is deployed at https://stocks-port.herokuapp.com/.
 
 ## Funtionalities/Features
 
