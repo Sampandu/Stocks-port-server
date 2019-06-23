@@ -6,7 +6,7 @@
     "node": "10.16.0",
     "npm":"6.9.0"
   },
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "createdb": "node db.js"
@@ -34,6 +34,3 @@
     "pg": "^7.9.0"
   }
 }
-
-//node 10.16.0...
-// remote:        Using default npm version: 6.9.0
