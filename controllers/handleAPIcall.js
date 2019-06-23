@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { testToken } = require('../.secret');
+const { testToken } = process.env || require('../secret');
 
 const fetchPrice = (req, res, ticker) => {
   return axios

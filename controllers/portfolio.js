@@ -1,6 +1,6 @@
 const { createTickersList } = require('../utils');
 const axios = require('axios');
-const { testToken } = require('../.secret');
+const { testToken } = process.env || require('../secret');
 
 const handlePortfolio = (req, res, db) => {
   const name = req.query.name;
