@@ -22,7 +22,7 @@ The app runs on a Node/Express server and is powered by React on the front end. 
 
 ## To run this locally:
 
-1. clone this repo (TTP-FS-server)
+1. clone this repo (TTP-FS-server).
 2. go to https://iexcloud.io/, apply for a test token, then create a ".secret.js" file in the root directory and assign the token to a variable called testToken.
 3. npm install
 4. npm run createdb
