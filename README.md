@@ -14,7 +14,7 @@ The app runs on a Node/Express server and is powered by React on the front end. 
    1. Red color of stock symbols indicates the current price is less than the day's open price.
    2. Grey color of stock symbols indicates the current price is less than the day's open price.
    3. Green color of stock symbols indicates the current price is less than the day's open price.
-6. Proper error handling: form validations and data cleanup have been done in order to succesfully save data, fetch data and render components.
+6. Proper error handling: form validations and data cleanup have been done in order to successfully save data, fetch data and render components.
 7. DRY code:
    1. Utility functions for data manipulation, data fetching.
    2. Use modularized structure: create "Stocklist" component to render a list of stocks and indicate performance dynamically, create "Loading" screen when fetching a list of stocks and transactions.
