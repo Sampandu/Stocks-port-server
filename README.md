@@ -27,4 +27,4 @@ The app runs on a Node/Express server and is powered by React on the front end. 
 3. npm install
 4. npm run createdb
 5. npm run start
-6. Go to https://github.com/Sampandu/TTP-FS and follow the instructions in the readme to run the client-side locally
+6. Go to https://github.com/Sampandu/Stocks-port and follow the instructions in the readme to run the client-side locally
