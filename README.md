@@ -22,7 +22,7 @@ The app runs on a Node/Express server and is powered by React on the front end. 
 
 ## To run this locally:
 
-1. clone this repo (TTP-FS-server)
+1. clone this repo (Stocks-port-server)
 2. go to https://iexcloud.io/, apply for a test token and set up in the repo
 3. npm install
 4. npm run createdb
